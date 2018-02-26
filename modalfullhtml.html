@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html{ 
+            box-sizing: border-box;
+            } 
+            *,*::before,*::after{
+            box-sizing:inherit;
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        dialog{
+        position: relative;
+        text-align: center;
+        width: 35%;
+        border: none;
+        background-color: rgb(121, 102, 189);
+        margin: 8em auto;
+        color: #fff;
+        padding: 13px;
+        transform: scale(0.0);
+        transition:transform 3s ease-out;
+        transition-delay: 3s;
+        } 
+        dialog h1{
+        padding: 5px;
+        color: #d3cccc;
+        }
+        dialog p{
+        font-size: 15px;
+        }
+        dialog i{
+        font-size: 10px; 
+        }
+        .close{
+            cursor: pointer;
+            position: absolute;
+            top: -15px;
+            right:-15px;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            background-color: #fff;
+            color: #000000;
+            border-radius: 50%;
+            text-decoration: none;
+            vertical-align: middle;
+            padding: 5px 2px;
+        }
+        span{
+           color: #9b9999;
+        }
+       </style> 
+</head>
+<body>
+    <dialog id="modal" >
+            <p class="close" id="close" href="#">×</p>
+            <h1> <span>Dev </span> Frontend</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, aliquam?
+
+            </p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga natus aliquid quidem odit fugit voluptatum repellat, nostrum explicabo excepturi quos maiores ipsum voluptates labore necessitatibus facere. Odio error rerum doloribus.</p>
+            <i>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum, excepturi.</i>
+            <br> <br>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem exercitationem aliquid maiores animi quos, corrupti consequuntur! Quo voluptatum commodi adipisci.</p>
+        </dialog>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente soluta id sint magnam quas ad, nesciunt deserunt odio, libero corporis voluptates repudiandae natus culpa sit illo nihil itaque, reprehenderit obcaecati.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente soluta id sint magnam quas ad, nesciunt deserunt odio, libero corporis voluptates repudiandae natus culpa sit illo nihil itaque, reprehenderit obcaecati.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente soluta id sint magnam quas ad, nesciunt deserunt odio, libero corporis voluptates repudiandae natus culpa sit illo nihil itaque, reprehenderit obcaecati.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente soluta id sint magnam quas ad, nesciunt deserunt odio, libero corporis voluptates repudiandae natus culpa sit illo nihil itaque, reprehenderit obcaecati.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente soluta id sint magnam quas ad, nesciunt deserunt odio, libero corporis voluptates repudiandae natus culpa sit illo nihil itaque, reprehenderit obcaecati.</p>
+
+<button id="open">Abrir la ventana  modal</button> 
+
+    <script>
+        const abrir = document.getElementById('open');
+        const close = document.getElementById('close'); 
+        const modal = document.getElementById('modal');
+        abrir.onclick = function(){
+            modal.setAttribute('open','');
+            modal.style.transform ='scale(1.2)';
+            modal.style.transition ='.4s ease';
+            document.body.style.backgroundColor = '#0000000';
+            document.body.style.backgroundColor = 'rgba(0,0,0,0.8)';
+        }
+        close.onclick = function(){
+            modal.removeAttribute('open','');
+            document.body.style.backgroundColor ='white';
+        }
+        
+    </script>
+</body>
+</html>

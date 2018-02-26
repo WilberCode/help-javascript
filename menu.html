@@ -8,12 +8,15 @@
 </head>
 
 <style>
-    *{
+     html{ 
+        box-sizing: border-box;
+        } 
+        *,*::before,*::after{
+        box-sizing:inherit;
         padding: 0;
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
     }
-   
     ul{ 
       width:100%;
       list-style:none; 
@@ -37,8 +40,9 @@
          
 
      }
-</style>
+    
 <body>
+         
     <header>
       <ul id="menu">
           <li class="item"><a href="#"> Pagina 1</a></li>
@@ -47,21 +51,20 @@
           <li class="item"><a href="#"> Pagina 1</a></li>
       </ul>
     </header>
+    <br><br><br>
 
 <script>
-   function myFunction(x){
-       var text = [];
-       var menuItem = document.querySelectorAll('.item'); 
+   
+   function myFunction(x){ 
+       var menuItem = document.getElementsByClassName('item'); 
         
        if(x.matches){
-        for(var i = 0; i<menuItem.length;i++){
-            text[i] = menuItem[i];
-            text[i].style.float ='none'; 
+        for(var i = 0; i<menuItem.length;i++){ 
+            menuItem[i].style.float ='none'; 
         }
        }else{
-        for(var i = 0; i<menuItem.length;i++){
-            text[i] = menuItem[i];
-            text[i].style.float ='left'; 
+        for(var i = 0; i<menuItem.length;i++){ 
+            menuItem[i].style.float ='left'; 
         }  
     }
  }
@@ -70,6 +73,7 @@
    x.addListener(myFunction);
  
 </script>
+
 
 </body>
 </html>
