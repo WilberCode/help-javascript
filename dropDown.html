@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+         html{ 
+        box-sizing: border-box;
+        } 
+        *,*::before,*::after{
+        box-sizing:inherit;
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        }
+        .header{
+            padding: 8px 20px;
+            background-color: rgb(77, 174, 199);
+        }
+        .dropdown{
+         position: relative; 
+         display: inline-block;
+        }
+        .dropbtn{
+            position: relative;
+            display: inline-block;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            padding: 12px 25px; 
+            color: #ffffff; 
+            z-index: 5;  
+            background: linear-gradient(to left,#6b9db8, #243f4e);
+        } 
+        .dropdown-content{
+            display: none;
+            position: absolute; 
+            min-width: 100%;
+            overflow: auto; 
+        }
+        .show{
+            display: block;
+        }
+        .link{
+            display: block;  
+            text-decoration: none;
+            background-color: #83c0e4;
+            color: #ffffff; 
+            padding: 10px 15px;
+            font-size: 13px;
+          
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="dropdown">
+        <button class="dropbtn" id="dropbtn">Dropdown</button>
+        <div  id="dropdown-content" class="dropdown-content">
+            <a class="link" href="#">Pagina 1</a>
+            <a class="link" href="#">Pagina 2</a>
+            <a class="link" href="#">Pagina 3</a>
+        </div>
+    </div>
+    </header>
+    <script> 
+            let dropdowns = document.getElementById('dropbtn');
+            let dropM =()=>{ 
+                document.getElementById('dropdown-content').classList.toggle("show");
+            }
+            dropdowns.addEventListener('click',dropM); 
+            window.onclick = (event)=>{
+            if(!event.target.matches(".dropbtn")){
+                let dropdowns = document.getElementsByClassName('dropdown-content');
+                for(let i = 0; i < dropdowns.length;i++){
+                    let drop = dropdowns[i];
+                    if(drop.classList.contains('show')){
+                        drop.classList.remove('show');
+                    }
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>
