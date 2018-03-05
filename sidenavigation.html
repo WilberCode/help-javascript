@@ -54,6 +54,7 @@
             list-style: none;
         }
         .menu-item{
+            display: block;
             padding: 15px;
         }
         .menu-link{
@@ -102,7 +103,8 @@
             display: block; 
             
         }
-        .dark{ 
+        .container{ 
+            display: none;
             position: absolute;
             top: 0;
             right: 0;
@@ -130,7 +132,7 @@
             <li class="menu-item"><a class="menu-link" href="#">Link Go 7</a></li>
         </ul>
     </section>
-    <section id="dark"></section>
+    <section class="container" id="container"></section>
     <script>
         let btn = document.getElementById('btn');
         let navigation = document.getElementById('navigation'); 
@@ -141,20 +143,21 @@
         //open
         let navF = ()=>{
             navigation.style.transform="translateX(0)";  
-            document.getElementById('dark').classList.toggle("dark");
+           document.getElementById('container').style.display = 'block';
+           navigation.style.width='250px';  
         }
         btn.addEventListener('click',navF);
         //close
         let navClose = ()=>{
-            navigation.style.transform="translateX(-250px)"; 
-            document.getElementById('dark').classList.remove("dark"); 
+            navigation.style.transform="translateX(-250px)";  
+            var container =  document.getElementById('container').style.display = 'none';
         }  
         span.addEventListener('click',navClose);  
         //click on windows by close the navigation  
-        document.getElementById('dark').onclick = function(even){ 
-            if(even.target == dark){
-                document.getElementById('dark').classList.remove("dark"); 
+        window.onclick = function(event){ 
+            if(event.target == container){
                 navigation.style.width='0px';  
+                container.style.display = 'none';  
         } 
     };
         

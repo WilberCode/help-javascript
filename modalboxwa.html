@@ -15,6 +15,16 @@
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
         }
+        .container{
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+
+        }
         .modal{ 
             position: absolute;
             left: 50%; 
@@ -22,8 +32,7 @@
             box-shadow: 0px 5px 15px 1px  rgba(0, 0, 0, 0.2);
             border-radius: 3px;
             transform: translateX(-50%);   
-            z-index: 8; 
-            margin-top: -350px;
+            z-index: 8;   
             transition: .4s ease-out;
             background: #ffffff;
             
@@ -103,7 +112,7 @@
             bottom: 0;
             width: 0; 
             background-color: rgb(33, 105, 122);  
-            transition: .3s linear;
+            transition: .5s linear;
             border-radius:0 22px 22px 0;
         }
         .container-btn{
@@ -116,7 +125,9 @@
 
     </style>
 </head>
-<body> 
+<body>
+   <section class="container" id="container">
+    </section>
     <section class="modal" id="modal">
         <section class="header">
             <p class="title">Modal Header</p>
@@ -131,23 +142,27 @@
             <p class="title">Modal Footer</p>
         </section>
     </section>
-    <section class="container-btn">
-        <a class="btn-open" id="btn-open" href="#"><span class="btn-text">Open Modal Box</span></a>
-    </section> 
+  
+  
+   <section class="container-btn">
+    <a class="btn-open" id="btn-open" href="#"><span class="btn-text">Open Modal Box</span></a>
+</section>
 
     <script>
-        document.getElementById('btn-open').onclick = function(){ 
-            document.getElementById('modal').style.marginTop=-'0';
-            document.body.style.backgroundColor = 'rgba(0,0,0,0.4)';
+        document.getElementById('btn-open').onclick = function(){  
+            document.getElementById('container').style.display='block'; 
+            document.getElementById('modal').style.marginTop='19px';   
         }
         document.getElementById('close').onclick = function(){ 
-          var modal =  document.getElementById('modal').style.marginTop='-350px';
-            document.body.style.backgroundColor = '#ffffff';
+          document.getElementById('modal').style.marginTop='-350px'; 
+          var container =  document.getElementById('container').style.display='none'; 
         }
         window.onclick = function(event){
-          if(event.target == 'modal'){
+          if(event.target == container){
             document.getElementById('modal').style.marginTop='-350px';
             document.body.style.backgroundColor = '#ffffff';
+            container.style.display='none'; 
+
           }
         };
     </script>
