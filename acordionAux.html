@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+     .tab-content{
+         display: none;
+         padding: 50px;
+         text-align: center;
+         color: #ffffff;
+         font-size: 25px;
+     }
+     .container-btn{
+        background-color: #008E96;
+        display: flex;
+     }
+     .taglink{ 
+         cursor: pointer;
+         width: 100%;
+         outline: none;
+         border: none;
+         padding: 20px;
+         color: #ffffff;
+         text-align: center;
+         background-color: #008E96;
+     }
+     .taglink:hover{
+         background-color:rgba(0, 0, 0, 0.5);
+     }
+ 
+     #peru{background-color: red; }
+     #brasil{background-color: green; }
+     #colombia{background-color: orange; }
+     #ecuador{background-color: blueviolet; }
+    </style>
+</head>
+<body>
+    <div id="peru" class="tab-content">
+        <p>Tab 1</p>
+    </div>
+    <div id="brasil" class="tab-content">
+        <p>Tab 2</p>
+    </div>
+    <div  id="colombia" class="tab-content">
+        <p>Tab 3</p>
+    </div>
+    <div  id="ecuador" class="tab-content">
+        <p>Tab 4</p>
+    </div>
+    <section class="container-btn">
+        <button class="taglink" onclick="openCountry('peru',this,'red')"  id="TagDefault" >Peru</button>
+        <button  class="taglink" onclick="openCountry('brasil',this,'green')">Brasil</button>
+        <button  class="taglink" onclick="openCountry('colombia',this,'orange')">Colombia</button>
+        <button  class="taglink" onclick="openCountry('ecuador',this,'blueviolet')">Ecuador</button>
+    </section>
+    <script>
+        function openCountry(country,evt,color){
+            let i,tabContent,taglink;
+            tabContent = document.getElementsByClassName('tab-content');
+            for(i =0; i < tabContent.length;i++){
+                tabContent[i].style.display ='none';
+            }
+            taglink = document.getElementsByClassName('taglink');
+            for(i = 0; i < taglink.length;i++){
+                taglink[i].style.backgroundColor ='';
+            }
+            document.getElementById(country).style.display ='block';
+            evt.style.backgroundColor = color;
+        }
+        //Tag ative for default
+        document.getElementById('TagDefault').click();
+    </script>
+</body>
+</html>
