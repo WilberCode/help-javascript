@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="clase-1-ReduceMapFilter.js"></script>
+    <style>
+        html{ 
+        box-sizing: border-box;
+        } 
+        *,*::before,*::after{
+        box-sizing:inherit;
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        }
+        body{ 
+         padding: .5em;
+        } 
+        .accordion{
+            position: relative;
+            width: 100%;
+            padding: 1em 0;
+            border:none ;
+            outline:none ;
+            cursor: pointer;
+            background-color: #22b4c7;
+            color:#ffffff;
+        } 
+        .plus::before{ 
+            display: block;
+            position: absolute;
+            content: '+';
+            left: .8em;
+            font-size: 20px;
+            font-weight: bold;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: .5s ease-out; 
+        } 
+        .less::after{ 
+            display: block;
+            position: absolute;
+            content: '←';
+            left: .8em;
+            font-size: 20px;
+            font-weight: bold;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: 1s ease-out; 
+
+        }
+        .active,.accordion:hover{
+            background-color: #1a96a7;
+        }
+        .panel{ 
+            padding:  0 1em;  
+            max-height: 0;
+            overflow: hidden; 
+            transition: max-height .2s ease-out;
+        }
+        .description{
+            padding: 1em 0;
+        }
+        .animation{
+            animation: animation .5s;
+        }
+        @keyframes animation {
+            from{transform: scaleY(0)}
+            to{transform: scaleY(1)}
+
+        }
+        .maps{
+            display: block;
+            margin: auto;
+
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <button class="accordion ">Acordion 1 </button>
+    <div class="panel">
+        
+        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, saepe quibusdam magnam eos iusto corrupti sint consectetur, dolore aliquid quisquam voluptatibus dicta eveniet maxime deserunt veritatis incidunt animi minus itaque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur optio ipsam blanditiis iste illum dolorem in dolore fugiat eius fuga magnam aliquid perspiciatis eligendi, est quam ab nisi nam dignissimos! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi id enim vero sint debitis delectus neque culpa, fuga fugit nihil, nemo placeat perferendis. Est, rem voluptatum. Dolorum provident aspernatur nesciunt. </p>
+    </div>
+    <button class="accordion ">Acordion 2</button>
+    <div class="panel">
+        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, saepe quibusdam magnam eos iusto corrupti sint consectetur, dolore aliquid quisquam voluptatibus dicta eveniet maxime deserunt veritatis incidunt animi minus itaque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur optio ipsam blanditiis iste illum dolorem in dolore fugiat eius fuga magnam aliquid perspiciatis eligendi, est quam ab nisi nam dignissimos! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi id enim vero sint debitis delectus neque culpa, fuga fugit nihil, nemo placeat perferendis. Est, rem voluptatum. Dolorum provident aspernatur nesciunt. </p>
+    </div>
+    <button class="accordion  ">Acordion 3</button>
+    <div class="panel">
+        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, saepe quibusdam magnam eos iusto corrupti sint consectetur, dolore aliquid quisquam voluptatibus dicta eveniet maxime deserunt veritatis incidunt animi minus itaque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur optio ipsam blanditiis iste illum dolorem in dolore fugiat eius fuga magnam aliquid perspiciatis eligendi, est quam ab nisi nam dignissimos! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi id enim vero sint debitis delectus neque culpa, fuga fugit nihil, nemo placeat perferendis. Est, rem voluptatum. Dolorum provident aspernatur nesciunt. </p>
+    </div>
+    <button class="accordion  ">Acordion 4</button>
+    <div class="panel">
+        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, saepe quibusdam magnam eos iusto corrupti sint consectetur, dolore aliquid quisquam voluptatibus dicta eveniet maxime deserunt veritatis incidunt animi minus itaque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur optio ipsam blanditiis iste illum dolorem in dolore fugiat eius fuga magnam aliquid perspiciatis eligendi, est quam ab nisi nam dignissimos! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi id enim vero sint debitis delectus neque culpa, fuga fugit nihil, nemo placeat perferendis. Est, rem voluptatum. Dolorum provident aspernatur nesciunt. </p>
+    </div>
+
+    <section class="maps"
+            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1C5ohVGgK7NzMzdrBOHBTRuggqxr84NiJ" width="640" height="480"></iframe>
+    </section>
+     
+  <script>
+      let accordion = document.getElementsByClassName('accordion');  
+     
+      for(let i = 0; i< accordion.length; i++){
+        let plusActive = accordion[i].classList.toggle('plus'); 
+          accordion[i].addEventListener('click',function(){  
+                       this.classList.toggle('active'); 
+                       this.classList.toggle('less'); 
+                       this.classList.toggle('plus');   
+                     let panel = this.nextElementSibling;
+                       if(panel.style.maxHeight){
+                           panel.style.maxHeight = null;    
+                       }else{
+                           panel.style.maxHeight = panel.scrollHeight + 'px';     
+                       }  
+                       panel.classList.toggle('animation');  
+          });
+      } 
+  </script>
+  
+ </body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html{ 
+        box-sizing: border-box;
+        } 
+        *,*::before,*::after{
+        box-sizing:inherit;
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        }
+        .navigation{
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background: rgb(0, 0, 0);
+            background-color: rgba(#000000, 0.9);
+            width: 250px;
+            min-height: 100%;
+            overflow: hidden;
+            z-index: 5; 
+            transform: translateX(-250px); 
+            transition: .2s ease-in-out; 
+        } 
+        /*Header*/
+        .header{
+            background-color: rgb(49, 140, 168);
+            padding: 24px;
+        }
+        .btn{
+            position: fixed; 
+            top: 1em;
+            left: 1em;
+            width: 20px; 
+            box-shadow: 0 0 0 2px #ffffff,0 8px 0 2px #ffffff,0 16px 0 2px #ffffff; 
+        }
+        .btn::before{
+            position: absolute;
+            content: '';
+            top: -3px;
+            left: -3px;
+            width: 25px;
+            height: 22px; 
+        }
+        /*Side Navigation */
+        .menu{
+            list-style: none;
+        }
+        .menu-item{
+            display: block;
+            padding: 15px;
+        }
+        .menu-link{
+            display: block;
+            text-decoration: none;
+            color: #9b9393;
+        }
+        .menu-link:hover{
+            text-decoration: underline;
+        }
+        .close{
+            position: absolute;
+            top: .5em;
+            right: .5em;  
+            background-color: rgb(85, 84, 84);
+            width: 14px;
+            height: 14px;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            border-radius: 50%;
+        }
+        .close::before{
+            position: fixed; 
+            content: '';
+            width:15px; 
+            box-shadow: 0 0 0 1px #ffffff; 
+            transform: rotate(140deg); 
+        }
+        .close::after{
+            position: fixed;
+            width: 15px;
+            content: ''; 
+            box-shadow: 0 0 0 1px #ffffff;
+            transform: rotate(-140deg); 
+        }
+        .close:hover{
+            transform: scale(1.1);
+        }
+        .close:active{
+            transform: scale(.8);
+        }
+        .show{
+            display: block; 
+            
+        }
+        .container{ 
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="btn" id="btn"></a>
+        </nav>
+    </header>
+    <section class="navigation" id="navigation">
+        <ul class="menu">
+            <li class="menu-item"><a class="menu-link" href="#">Link Go 1</a></li>
+            <li class="menu-item"><a class="menu-link" href="#">Link Go 2</a></li>
+            <li class="menu-item"><a class="menu-link" href="#">Link Go 3</a></li>
+            <li class="menu-item"><a class="menu-link" href="#">Link Go 4</a></li>
+            <li class="menu-item"><a class="menu-link" href="#">Link Go 5</a></li>
+            <li class="menu-item"><a class="menu-link" href="#">Link Go 6</a></li>
+            <li class="menu-item"><a class="menu-link" href="#">Link Go 7</a></li>
+        </ul>
+    </section>
+    <section class="container" id="container"></section>
+    <script>
+        let btn = document.getElementById('btn');
+        let navigation = document.getElementById('navigation'); 
+        let span = document.createElement('span');
+        span.classList ='close';
+        span.id ='close';
+        navigation.appendChild(span);
+        //open
+        let navF = ()=>{
+            navigation.style.transform="translateX(0)";  
+           document.getElementById('container').style.display = 'block';
+           navigation.style.width='250px';  
+        }
+        btn.addEventListener('click',navF);
+        //close
+        let navClose = ()=>{
+            navigation.style.transform="translateX(-250px)";  
+            var container =  document.getElementById('container').style.display = 'none';
+        }  
+        span.addEventListener('click',navClose);  
+        //click on windows by close the navigation  
+        window.onclick = function(event){ 
+            if(event.target == container){
+                navigation.style.width='0px';  
+                container.style.display = 'none';  
+        } 
+    };
+        
+    </script>
+</body>
+</html>

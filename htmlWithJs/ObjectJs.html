@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+        <script>
+       let SC=[ {
+              name:"Peru",
+              ranges:[[40960, 42125], [42128, 42183]],
+              direction: "Lima",
+              year:2018,
+              living: true,
+              link:"https://www.peru.com"
+          },
+          {
+              name:"Colombia",
+              ranges:[[40960, 42125], [42128, 42183]],
+              direction: "Vogota",
+              year:2017,
+              living: true,
+              link:"https://www.colombia.com"
+          },
+          {
+              name:"Brasil",
+              ranges:[[40960, 42125], [42128, 42183]],
+              direction: "San Paulo",
+              year:2016,
+              living: false,
+              link:"https://www.brasil.com"
+          },
+          {
+              name:"Ecuador",
+              ranges:[[40960, 42125], [42128, 42183]],
+              direction: "Quito",
+              year:2018,
+              living: true,
+              link:"https://www.ecuador.com"
+          },
+          {
+              name: "Chile",
+              ranges: [[40960, 42125], [42128, 42183]],
+              direction: "Santiago",
+              year: 200,
+              living: false,
+              link: "https://www.chile.com"
+          }];
+
+       function filter(array, test){
+           let  passed = [];
+           for(let element of array){ 
+               if(test(element)){
+                   passed.push(element);
+               } 
+           }
+           return passed ;
+       }
+
+       function map(array, transform){
+            let mapped = [];
+            for(let element of array){
+                mapped.push(transform(element));
+            }
+            return mapped;
+
+       }
+       let CountryScripts = SC.filter(s => s.name == "Peru");
+       console.log(map(CountryScripts, s => s.name)); 
+
+            
+ 
+      
+        </script>  
+</body>
+</html>

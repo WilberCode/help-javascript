@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let SCRIPTS=[ {
+            name:"Peru",
+            ranges:[[401, 405],[406, 407], [408, 409]],
+            direction: "Lima",
+            year:2018,
+            living: true,
+            link:"https://www.peru.com"
+        },
+        {
+            name:"Colombia",
+            ranges:[[40960, 42125], [42128, 42183]],
+            direction: "Vogota",
+            year:2017,
+            living: true,
+            link:"https://www.colombia.com"
+        },
+        {
+            name:"Brasil",
+            ranges:[[40960, 42125],[40960, 42125],[40960, 42125], [42128, 42183]],
+            direction: "San Paulo",
+            year:2016,
+            living: false,
+            link:"https://www.brasil.com"
+        },
+        {
+            name:"Ecuador",
+            ranges:[[40960, 42125], [42128, 42183]],
+            direction: "Quito",
+            year:2018,
+            living: true,
+            link:"https://www.ecuador.com"
+        },
+        {
+            name: "Chile",
+            ranges: [[80,90,],[100,105],[200, 201],[202, 204]],
+            direction: "Santiago",
+            year: 2010,
+            living: false,
+            link: "https://www.chile.com"
+        }];
+    </script>
+    <script>
+     function characterString(code){
+        for(let script of SCRIPTS){ 
+            if(script.ranges.some(([from,to])=>{
+                return code >= from && code < to;
+            })){
+                return script; 
+            }
+        }
+        return null;
+     }  
+     console.log(characterString(101));
+    </script>
+</body>
+</html>

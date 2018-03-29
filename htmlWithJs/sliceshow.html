@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+        * {box-sizing: border-box}
+        body {font-family: Verdana, sans-serif; margin:0}
+    .sliceshow-container{
+        position: relative;
+        background-color: #ddd;  
+        width: 100%;
+        height: 25em;
+    }  
+    .autor{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -40px;
+        transform: translateY(-50%); 
+        transform: translateX(-50%);  
+        color:rgb(221, 215, 215);
+        font-size: 50px;
+        font-weight: bold;
+    }
+    .autor span{
+       color: #969393;
+    }
+    q{
+        font-family:cursive;
+    }
+    .mySlice{
+       position: relative;
+       display: none; 
+       width: 100%;
+       height: 100%;
+       text-align: center;
+       vertical-align: middle;
+    }
+    .mySlice img{
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .mySlice:nth-child(1){
+        background: url(https://www.pexels.com//assets/headers/waterfall-668aecdf0e4165bd99516be539482dccd62921846a9cb178d932a070304d4bdd.jpg)no-repeat top/cover;
+    }
+    .prev,.next{  
+        position: absolute; 
+        top:50%;
+        transform: traslateY(-50%);
+        margin-top: -25px;
+        padding: .5em;
+        font-weight: bold;
+        border-radius: 0 4px 4px 0;
+        color: #fff;
+        text-decoration: none;
+        user-select: none; 
+        width: auto;
+        font-size: 25px;    
+        
+    }
+    .prev{
+        left: 0;
+    }
+    .next{
+        position: absolute;
+        right:0;
+        border-radius: 4px 0 0 4px;
+    }
+    .prev:hover,.next:hover{ 
+        background-color: #000000;
+    }
+    .dot-container{
+        padding: 1em 0;
+        text-align: center;
+        background-color: #c4bdbd;
+    }
+    .dot{
+        display:inline-block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: #9b9797;
+        margin:0 2px;
+        cursor: pointer;
+        transition: background-color 0.6s ease; 
+    }
+    .active, .dot:hover{
+        background-color: #535050;
+    }
+
+</style>
+<body>
+    <div class="sliceshow-container">
+        
+        <div class="mySlice">
+            <p class="autor">Frontend <span>Dev</span></p>
+        </div>
+        <div class="mySlice">
+             <img src="https://images.pexels.com/photos/871488/pexels-photo-871488.jpeg?h=350&auto=compress&cs=tinysrgb" alt="">
+        </div>
+        <div class="mySlice"> 
+                <img src="https://images.pexels.com/photos/297814/pexels-photo-297814.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" alt="">
+
+        </div>
+      
+        <a href="#" class="prev" onclick="plusSlides(-1)">❮</a>
+        <a href="#" class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <div class="dot-container">
+        <span class="dot" onclick="correntSlice(1)"></span>
+        <span class="dot" onclick="correntSlice(2)"></span>
+        <span class="dot" onclick="correntSlice(3)"></span>
+    </div>
+ </body>
+  <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+      function plusSlides(n){
+        showSlides(slideIndex += n);
+      }
+      function correntSlice(n){
+        showSlides(slideIndex = n);
+      }
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlice");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++){
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";  
+        dots[slideIndex - 1].className += " active";
+      }
+
+    var menu = document.getElementsByTagName('li');
+
+
+    for(var i = 0; i<txt.length;i++){
+        
+    }
+
+
+
+  </script>
+</html>

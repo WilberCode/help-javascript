@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            html{ 
+                box-sizing: border-box;
+                } 
+                *,*::before,*::after{
+                box-sizing:inherit;
+                padding: 0;
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+                }
+                body{
+                    padding: 15px 10em;
+                }
+        .tab{
+            list-style:none; 
+            display:-webkit-inline-flex;
+            background-color: #008E96;
+           
+        }
+        .tab-item{ 
+            position: relative; 
+            padding: 14px 20px; 
+            border: 1px solid #008E96;
+            background-color: #008E96;
+            color: #ffffff;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .tab-item:hover:not(.active){
+            background-color: rgba(0, 0, 0, 0.2);
+        } 
+        .panel{
+            border: 1px solid #008E96;
+            display: block;
+            position: relative;
+            top: -1px;
+
+        }
+        .panel-item{
+            display: none;
+            background-color: #fff;
+            color: #008E96;
+            padding: 10px 12px;
+        } 
+        .active{
+            background-color: #ffffff; 
+            border-bottom: none; 
+            color: #008E96;  
+            display: block;    
+           }
+        p{
+           font-size: 13px;
+           line-height: 1.4em;
+           letter-spacing: 0.01em;
+        } 
+    </style>
+</head>
+<body>
+    <div class="tab-container">
+        <ul class="tab" id="tab">
+            <li class="tab-item active ">Tab 1</li>
+            <li class="tab-item">Tab 2</li>
+            <li class="tab-item">Tab 3</li>
+            <li class="tab-item">Tab 4</li>
+            <li class="tab-item">Tab 5</li>
+        </ul>
+    </div>
+    <div class="panel">
+        <div class="panel-item active ">
+            <h2>1</h2>
+            <p> Lorem, ipsumdolorsit amet consectetur adipisicing elit. Ullam nostrum assum sit amet consectetur adipisicing elit. Ullam nostrum assum dolor sit ametLorem, ipsumdolor sit amet consectetur adipisicing elit. Ullam nostrum assum dolor sit amet consectetur adipisicing elit. Ullam nostrum assumenda voluptates, praesentium numquam possimus nam neque officiis voluptas iure eius voluptatem incidunt quam sed dignissimos quis voluptate illum reiciendis.7            </p>
+        </div>
+        <div class="panel-item">
+            <h2>2</h2>
+            <p> Lorem, ipsumdolorLorem, ipsumdolor sit amet consectetur adipisicing elit. Ullam nostrum assum dolor sit amet sit amet consectetur adipisicing elit. Ullam nostrum assum dolor sit ametLoreadipisicim, dolor sit amet consectetur adipisicing elit. Ullam nostrum assumipsum dolor sit amet consectetur adipisicing elit. Ullam nostrum assumenda voluptates, praesentium numquam possimus nam neque officiis voluptas iure eius voluptatem incidunt quam sed dignissimos quis voluptate illum reiciendis.7            </p>
+        </div>
+        <div class="panel-item">
+            <h2>3</h2>
+            <p>Lorem,Lorem, ipsumdolor sit amet consectetur adipisicing elit. Ullam nostrum assum dolor sit amet ipsumdolor sit amet consectetur adipisicing elit. Ullam nostrum assum dolor sit amet Lorolor sit amet cem, ipsum dolor sit amet consectetur adipisicing elit. Ullam nostrum assumenda voluptates, praesentium numquam possimus nam neque officiis voluptas iure eius voluptatem incidunt quam sed dignissimos quis voluptate illum reiciendis.7            </p>
+        </div>
+        <div class="panel-item">
+            <h2>4</h2>
+            <p> Lorem,Lorem, ipsumdolor sit amet consectetur adipisicing elit. Ullam nostrum assum dolor sit amet ipsumdolor sit amet consectetur adipisicing elit. Ullam nostrum assum dolor sit ametLolor sit amet corem, ipsum dolor sit amet consectetur dolor sit amet consectetur adipisicing elit. Ullam nostrum assum adipisicing elit. Ullam nostrum assumenda voluptates, praesentium numquam possimus nam neque officiis voluptas iure eius voluptatem incidunt quam sed dignissimos quis voluptate illum reiciendis.7            </p>
+        </div>
+        <div class="panel-item">
+            <h2>5</h2>
+            <p>Lorem,Lorem, ipsumdolor sit amet consectetur adipisicing elit. Ullam nostrum assum dolor sit amet ipsumdolor sit amet consectetur adipisicing elit. Ullam nostrum assum dolor sit amet Lorem,olor sit amet c dolor sit amet consectetur adipisicing elit. Ullam nostrum assumipsum dolor sit amet consectetur adipisicing elit. Ullam nostrum assumenda voluptates, praesentium numquam possimus nam neque officiis voluptas iure eius voluptatem incidunt quam sed dignissimos quis voluptate illum reiciendis.7            </p>
+        </div>
+     
+    </div>
+    <script> 
+        (function(d){
+            let tabItems = Array.prototype.slice.apply(d.querySelectorAll('.tab-item'));
+            let panelItem =Array.prototype.slice.apply(d.querySelectorAll('.panel-item'));
+            
+             d.getElementById('tab').addEventListener('click', e =>{
+                  if(e.target.classList.contains('tab-item')){
+                  let i = tabItems.indexOf(e.target);
+                  tabItems.map(tab => tab.classList.remove('active'));
+                  tabItems[i].classList.add('active');
+
+                  panelItem.map(panel => panel.classList.remove('active'));
+                  panelItem[i].classList.add('active');
+                  }
+             }) 
+        })(document);
+    </script>
+</body>
+</html>

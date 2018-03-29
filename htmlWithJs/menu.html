@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+     html{ 
+        box-sizing: border-box;
+        } 
+        *,*::before,*::after{
+        box-sizing:inherit;
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    ul{ 
+      width:100%;
+      list-style:none; 
+      background-color:green;
+      overflow:hidden;
+     
+     }
+      ul li{
+       float:left;
+      
+     }
+     ul li a{
+       text-decoration:none;
+       color:#fff;
+       display: block;
+       padding: 1.5em;
+      }
+      ul li a:hover{
+         
+         background-color:rgba(0, 0,0, 0.5); 
+
+     }
+    </style>
+   
+<body>
+         
+    <header>
+      <ul id="menu">
+         <li class="item"><a href="#"> Pagina 1</a></li>
+         <li class="item"><a href="#"> Pagina 1</a></li>
+         <li class="item"><a href="#"> Pagina 1</a></li>
+         <li class="item"><a href="#"> Pagina 1</a></li>
+        </ul>
+    </header>
+    <br><br><br> 
+<script> 
+   function myFunction(x){ 
+       var menuItem = document.getElementsByClassName('item'); 
+        
+       if(x.matches){
+        for(var i = 0; i<menuItem.length;i++){ 
+            menuItem[i].style.float ='none'; 
+        }
+       }else{
+        for(var i = 0; i<menuItem.length;i++){ 
+            menuItem[i].style.float ='left'; 
+        }  
+    }
+ }
+   var x = window.matchMedia("(max-width:700px)")
+   myFunction(x)
+   x.addListener(myFunction);
+ 
+</script>
+
+
+</body>
+</html>

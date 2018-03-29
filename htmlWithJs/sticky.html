@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html{
+            box-sizing: border-box;
+        }
+        *,*::before,*::after{
+            box-sizing: inherit;
+            padding: 0;
+            margin: 0;
+            line-height: 1.2em;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        header{
+            padding: 25px;
+            text-align: center;
+        }
+        .nav{
+            background-color: #008e96;
+            display: flex;
+        }
+        .nav a{
+            padding: 15px 15px; 
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 15px;
+        }
+        .nav a:hover:not(.active){
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        .active{
+            background: rgba(0, 0, 0, 0.5);
+
+        }
+        main{
+            padding: 25px 20em;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+        .sticky{
+            position: sticky;
+            top: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>This  is Sticky  width Js</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi tenetur impedit, quis veritatis accusantium ducimus. </p>
+    </header>
+    <nav class="nav" id="nav">
+        <a class="active" href="#">Pagina 1</a>
+        <a href="#">Pagina 2</a>
+        <a href="#">Pagina 3</a>
+        <a href="#">Pagina 4</a>
+    </nav>
+    <main>
+        <h1>Sticky</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>  Ab doloremque earum odit esse dolor expedita odio <br> fugiat. Praesentium, voluptate atque minima excepturi, dolorum vitae quod necessitatibus vel ipsum accusamus esse <br> <br> dicta blanditiis nostrum ducimus dolores dolorem commodi! Tempora voluptatum id quisquam suscipit mollitia iure, pariatur reprehenderit et dolor neque illum nulla placeat. Inventore corrupti aspernatur placeat? Debitis maiores quod sunt magni, atque culpa obcaecati magnam <br>  cumque quasi laborum beatae ut inventore, repellendus, unde architecto. Magnam assumenda, rerum maiores nesciunt ducimus fuga, laborum molestias velit beatae officia quibusdam ipsum quos dolorem, quasi delectus. Eos amet veniam consequuntur autem dolores magni vitae quae porro illum similique ex nisi, et labore modi iste debitis dolorum aperiam nobis error quam consequatur mollitia perferendis? Blanditiis maxime tenetur esse repellendus qui. Consequatur modi ea asperiores impedit iusto tempore autem quasi non id, <br>  reiciendis praesentium eius tempora. Blanditiis laborum <br> accusantium ducimus magnam, dolorum aliquam fugit et exercitationem est temporibus eum omnis, eveniet sapiente praesentium iure libero obcaecati suscipit maiores earum. Aliquid ea id numquam eos non fugiat possimus quo. Minus at veniam asperiores unde deserunt qui dolorem ipsam, quaerat repellat, distinctio optio tempora quibusdam laborum beatae hic praesentium ad impedit adipisci esse delectus explicabo dignissimos quo quas. A placeat facere sequi qui? Eligendi fugit nulla excepturi inventore ratione voluptate vero, quo commodi! Non sit, itaque commodi alias doloribus eveniet distinctio, nam sapiente tenetur ut libero ab adipisci est repudiandae voluptatem dolores quibusdam provident. Pariatur nemo repellendus quaerat est quisquam nam voluptate ipsa, culpa vero corrupti facere dolorum quibusdam ab eligendi laudantium! Qui, minima ea praesentium aspernatur atque repudiandae asperiores maxime, assumenda dolorum tempora quod rem. Dolore blanditiis quas veritatis deserunt, accusamus harum praesentium consectetur perspiciatis quod molestias. Cum deleniti, aliquam nostrum quibusdam eum aliquid ipsum pariatur unde error voluptates voluptatibus magnam, adipisci labore neque corporis ut non distinctio iusto aut nam inventore harum. Necessitatibus rem nemo laborum quam a architecto impedit earum repudiandae! Eius incidunt repudiandae quam voluptatibus a mollitia, autem sit soluta sint voluptas odio consequuntur totam aliquid eos! Architecto debitis natus consectetur recusandae quibusdam unde, libero quaerat hic. Nam reiciendis, nulla numquam iste, quas, ipsa adipisci id autem eligendi quisquam amet recusandae nihil maxime temporibus veritatis! Cupiditate adipisci placeat molestias repudiandae omnis animi rerum possimus libero? Alias laboriosam pariatur similique nihil veritatis! Eum labore natus molestias culpa harum laborum consequuntur, adipisci id et voluptas rem error fugiat asperiores necessitatibus blanditiis, ipsa praesentium possimus quidem corporis tenetur sit similique consectetur qui aliquam! Eius aliquam ex libero architecto ullam, distinctio dolores at illum assumenda perspiciatis voluptatibus dolor saepe labore culpa <h1>Sticky v0.2</h1> eveniet quaerat! Nihil dolorum eos magnam? A possimus harum facere cupiditate, itaque doloremque culpa maxime unde error iusto obcaecati <br> pariatur rem illum quas, nisi officia officiis! Debitis <br> quae officia odit consectetur labore qui nisi sequi repudiandae quaerat a unde, incidunt cum eius ex, amet assumenda quisquam libero facere sint. Enim repellat magni in fuga iste esse quaerat ea mollitia, hic placeat eius. Voluptate, soluta <br>  odio. Sunt necessitatibus, reprehenderit possimus tempora ipsam voluptas autem distinctio animi amet praesentium.7</p>
+    </main>
+
+    <script>
+        (function(d){
+            window.onscroll = function(){
+                              stickyStop();
+            }
+            let navbar = d.getElementById('nav');
+            let sticky = navbar.offsetTop;  
+            function stickyStop(){
+                     (window.pageYOffset >= sticky)? navbar.classList.add('sticky'): navbar.classList.remove('sticky'); 
+            }
+        })(document);
+    </script>
+</body>
+</html>
