@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+         html{
+             box-sizing: border-box;
+             font-family:lato;
+         }
+         body{
+             background-color: rgb(32, 156, 194);
+         }
+         *,*::before,*::after{
+            box-sizing: inherit;
+            padding: 0;
+            margin: 0;
+         }
+         .container{
+             width: 100%;
+             padding: 0.4em;
+         }
+         .item{
+             width: 100%;
+         }
+         .form-container{
+            display: flex;
+            justify-content: center;
+            
+         }
+         .form-content{
+            width: 350px;
+            margin-right: 0.2em;
+         }
+         label{
+            display: block;
+            margin-bottom: 0.3em;
+            margin-top: 1.2em;
+            color: rgb(0, 0, 0);
+         }
+         input[type='text']{
+             outline: none;
+             border-radius: 4px;
+             width: 100%;
+             padding: 8px 15px 8px 5px; 
+             background-color: rgb(245, 245, 245);
+             border: none;
+         }
+         input[type='text']:focus{
+             box-shadow: 0 0 0 3px #addd00;
+             transition: all .2s ease-out;
+         }
+         ::placeholder{
+             color: rgb(189, 187, 187);
+         }
+         input[type="submit"],input[type='reset']{
+             padding: .6em 3em;
+             border-radius: 4px;
+             border: none;
+         }
+         input[type='reset']{
+             background-color: rgb(200, 255, 0);
+         }
+         .datos{
+             background-color: #fff;
+             margin-left: 0.2em; 
+         }
+        .data-show{
+            padding:1em .8em;
+        }
+        .photo{
+            width: 100%;
+            height: 200px;
+            background-repeat: no-repeat;
+            background-size:100%;
+            background-position: top left;
+            transition: all .5s ease-in;
+        } 
+        .info{ 
+        }
+        .info p{
+        margin-bottom: 0.3em;
+        color: rgb(136, 136, 136);
+        font-size: 14px;
+        }
+        .title{
+            font-size: 20px;
+            color: rgb(134, 133, 133);
+            margin-bottom: 0.3em;
+        }
+    </style>
+</head>
+<body>
+    <div class=" container form-container">
+            <form action="#" method="POST" name="form-content" id="form-content" class="form-content">
+                    <label for="">
+                        Tratamiento
+                        <input type="radio" name="sexo" value="Sr."> Sr.
+                        <input type="radio" name="sexo" value="Sra.">Sra.
+                    </label>
+                    <label for="">Nombre</label>
+                    <input type="text"    id="nombre" placeholder="Ingrese su Nombre" >
+                    <label for="">Apellidos </label>
+                    <input type="text" id="apellidos" placeholder="Ingrese su Apellidos" >
+                    <label for="">Dirección </label>
+                    <input type="text" id="direccion" placeholder="Ingrese su Dicrección" >
+                    <label for="">Ciudad
+                        <select name="" id="ciudad">
+                            <option value="">Elija opción</option>
+                            <option value="peru">Perú (PE)</option>
+                            <option value="uruguay">Uruaguay (UR)</option>
+                            <option value="brasil">Brasil (BR)</option>
+                            <option value="colombia">Colombia (CM)</option>
+                        </select>
+                    </label>
+                    <label for="">
+                        Preferencias
+                        <input type="checkbox" name="libros"> Libros
+                        <input type="checkbox" name="Peliculas"> Películas
+                    </label>
+                    <input type="submit" value="Enviar" id="enviar">
+                    <input type="reset" value=" Cancelar" id="cancelar">
+                </form>
+   
+    <div class="datos">
+        <div class="photo" id="photo"> 
+        </div>
+        <div class="info " id="info">
+
+        </div> 
+    </div>
+</div>
+
+    <script>
+        (function(d){
+            cacillaInfo = d.getElementById('info')
+            radioButtom = d.getElementsByName('sexo')
+            checkboxElements = []
+
+            let elementosDelForm = d.getElementsByTagName('input')
+            let elementosSelect = d.getElementsByTagName('select')
+
+            for(let i = 0; i<elementosDelForm.length; i++){
+                if(elementosDelForm[i].type == 'radio'){
+                    elementosDelForm[i].addEventListener('click',actualizarDatos)
+                }else{
+                    elementosDelForm[i].addEventListener('change',actualizarDatos)
+
+                }
+                if(elementosDelForm[i].type == 'checkbox'){
+                    checkboxElements.push(elementosDelForm[i])
+                }
+                for(let i = 0;i< elementosSelect.length;i++){
+                    elementosSelect[i].addEventListener('change',actualizarDatos)
+                }
+            }
+            function actualizarDatos(){
+                let rutaImg =''
+                let radioButSelValue = ''
+                for(let i =0;i < radioButtom.length; i++){
+                   if(radioButtom[i].checked == true){
+                    radioButSelValue = radioButtom[i].value
+                   }
+                }
+                if (radioButSelValue != ''){
+                    if (radioButSelValue =='Sr.') {
+                        rutaImg='caraHombre.jpg';
+                       } else {
+                        rutaImg='caraMujer.jpg';
+                       }
+                    d.getElementById('photo').innerHTML = ''
+                    d.getElementById('photo').style.backgroundImage ='url("'+rutaImg+'")' 
+                }
+                checkedBoxSel = []
+                for(let i = 0; i < checkboxElements.length;i++){
+                    if(checkboxElements[i].checked == true){
+                        checkedBoxSel.push(checkboxElements[i].name)
+                    }
+                }
+                let elementoCiudad = d.getElementById('ciudad')
+
+                cacillaInfo.innerHTML = '<div class="data-show"><h1 class="title"> Datos Personales</h1> '+
+                                        '<p>Tratamiento: '+(radioButSelValue ||' ---- ')+'</p>'+
+                                        '<p>Nombre: '+ (d.getElementById('nombre').value ||' ---- ')+'</p> '+
+                                        '<p>Apellidos: '+ (d.getElementById('apellidos').value ||' ---- ')+'</p>'+
+                                        '<p>Direccion: '+ (d.getElementById('direccion').value ||' ---- ')+'</p> '+
+                                        '<p>Ciudad: '+ (elementoCiudad.options[elementoCiudad.selectedIndex].text ||' ---- ')+'</p>'+
+                                        '<p>Preferencias: '+ (checkedBoxSel ||'---- ')+'</p></div> '
+            }
+        })(document)
+    </script>
+</body>
+</html>

@@ -102,6 +102,30 @@
             
           
         }
+        .btn-top{
+            display: none;
+            position: fixed;
+            right: .5em;
+            bottom: .5em;
+            padding: 10px 18px;
+            background-color: #008e96;
+            color: #ffffff; 
+            border-radius: 50%;
+            transform: rotate(-270deg);
+            cursor: pointer;
+            user-select: none;
+            transition: all .1s ease-in;
+        }
+        .btn-top:hover{
+            background-color: #ca970a;
+        }
+        .btn-top:active{
+            transform: scale(1.2) rotate(-270deg);
+        }
+        .btn-top span{ 
+            font-size:1.5em;  
+            
+        }
        
     </style>
 </head>
@@ -126,11 +150,15 @@
         <img src="hourse.png">
         <p>icta blanditiis nostrum ducimus dolores dolorem commodi! Tempora voluptatum id quisquam <br> suscipit mollitia iure, pariatur reprehenderit et dolor<br> neque illum nulla placeat. Inventore corrupti aspernatur placeat? Debitis maiores quod sunt magni, atque culpa obcaecati magnam <br>  cumque quasi laborum beatae ut inventore, repellendus, unde architecto. Magnam assumenda, rerum maiores nesciunt ducimus fuga, laborum molestias velit beatae officia quibusdam ipsum quos dolorem, quasi delectus. Eos amet veniam consequuntur autem dolores magni vitae quae porro illum similique ex nisi, et labore modi iste debitis dolorum aperiam nobis error quam consequatur mollitia perferendis? Blanditiis maxime tenetur esse repellendus qui. Consequatur modi ea asperiores impedit iusto tempore autem quasi non id, <br>  reiciendis praesentium eius tempora. Blanditiis laborum <br> accusantium ducimus magnam, dolorum aliquam fugit et exercitationem est temporibus eum omnis, eveniet sapiente praesentium iure libero obcaecati suscipit maiores earum. Aliquid ea id numquam eos non fugiat possimus quo. Minus at veniam asperiores unde deserunt qui dolorem ipsam, quaerat repellat, distinctio optio tempora quibusdam laborum beatae hic praesentium ad impedit adipisci esse delectus explicabo dignissimos quo quas. A placeat facere sequi qui? Eligendi fugit nulla excepturi inventore ratione voluptate vero, quo commodi! Non sit, itaque commodi alias doloribus eveniet distinctio, nam sapiente tenetur ut libero ab adipisci est repudiandae voluptatem dolores quibusdam provident. Pariatur nemo repellendus quaerat est quisquam nam voluptate ipsa, culpa vero corrupti facere dolorum quibusdam ab eligendi laudantium! Qui, minima ea praesentium aspernatur atque repudiandae asperiores maxime, assumenda dolorum tempora quod rem. Dolore blanditiis quas veritatis deserunt, accusamus harum praesentium consectetur perspiciatis quod molestias. Cum deleniti, aliquam nostrum quibusdam eum aliquid ipsum pariatur unde error voluptates voluptatibus magnam, adipisci labore neque corporis ut non distinctio iusto aut nam inventore harum. Necessitatibus rem nemo laborum quam a architecto impedit earum repudiandae! Eius incidunt repudiandae quam voluptatibus a mollitia, autem sit soluta sint voluptas odio consequuntur totam aliquid eos! Architecto debitis natus consectetur recusandae quibusdam unde, libero quaerat hic. Nam reiciendis, nulla numquam iste, quas, ipsa adipisci id autem eligendi quisquam amet recusandae nihil maxime temporibus veritatis! Cupiditate adipisci placeat molestias repudiandae omnis animi rerum possimus libero? Alias laboriosam pariatur similique nihil veritatis! Eum labore natus molestias culpa harum laborum consequuntur, adipisci id et voluptas rem error fugiat asperiores necessitatibus blanditiis, ipsa praesentium possimus quidem corporis tenetur sit similique consectetur qui aliquam! Eius aliquam ex libero architecto ullam, distinctio dolores at illum assumenda perspiciatis voluptatibus dolor saepe labore culpa <h1>Sticky v0.2</h1> eveniet quaerat! Nihil dolorum eos magnam? A possimus harum facere cupiditate, itaque doloremque culpa maxime unde error iusto obcaecati <br> pariatur rem illum quas, nisi officia officiis! Debitis <br> quae officia odit consectetur labore qui nisi sequi repudiandae quaerat a unde, incidunt cum eius ex, amet assumenda quisquam libero facere sint. Enim repellat magni in fuga iste esse quaerat ea mollitia, hic placeat eius. Voluptate, soluta <br>  odio. Sunt necessitatibus, reprehenderit possimus tempora ipsam voluptas autem distinctio animi amet praesentium.7</p>
     </main>
+    <div class="btn-top" id="btn-top">
+        <span> &#10094;</span>
+    </div>
 
     <script>
         (function(d){
             window.onscroll = function(){
                               stickyStop();
+                              showBtn();
             }
             let navbar = d.getElementById('nav');
             let sticky = navbar.offsetTop;  
@@ -145,6 +173,20 @@
             menuIcon.onclick = function(){
                 d.getElementById('menu').classList.toggle('nav-show');
             }
+
+            /*scrooll back  to top*/ 
+            function showBtn(){
+                
+                if(d.body.scrollTop > 20  || d.documentElement.scrollTop > 20){
+                    d.getElementById('btn-top').style.display = 'block';
+                }else{
+                    d.getElementById('btn-top').style.display = 'none';                    
+                }
+            }
+          d.getElementById('btn-top').addEventListener('click',e =>{
+                   d.documentElement.scrollTop = 0;
+          });
+
         })(document);
     </script>
 </body>

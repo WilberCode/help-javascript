@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> 
+</head>
+<body>  
+     
+ <script>
+     function redirect(){
+        
+         /*  let num
+            for(  let i = 5; i >= 0; i--){
+                setTimeout(function(x){
+                    return function(){
+                        redirectURL(x)
+                    }
+                    alertMessage(i)
+                }(i),1000 * i)   
+            } 
+            */
+            setTimeout(alertMessage(),5000)
+            alert('Hemos  cambiado de ubicacion esta pagina. En breves  momentos será redireccionado ...') 
+        } 
+    function redirectURL(number){
+            
+          /* if(number == 5){ 
+               window.location.replace('https://web.facebook.com/')
+           }else{
+               window.location.origin('http://127.0.0.1:5500/test-2.html')
+           }*/
+      }
+      function alertMessage(number){
+         
+         window.location.replace('https://web.facebook.com/')
+       
+      }
+     window.onload = redirect 
+ </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+</head>
+<body>
+    
+    
+<script>
+    function function1(){
+
+       let  miVariable = 1 
+
+       function functionInterno(){
+
+          console.log(miVariable) 
+        
+       }
+       return functionInterno
+    }
+
+    let variableExterna = function1() 
+    variableExterna()
+   
+
+    function function2(){
+        let miVariable = 2
+        function functionInterna(){
+            console.log(miVariable)
+        }
+        functionExterna(functionInterna)
+    }
+    function functionExterna(functionI){
+        functionI()
+    }
+    function2()
+
+    function espera(mensaje){
+        setTimeout(function(){
+            console.log(mensaje)
+        },6000)
+    }
+    espera('Hola desde lima ')
+
+</script>
+</body>
+</html>

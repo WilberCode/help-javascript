@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(243, 242, 242);
+            font-family: sans-serif;
+            font-size: 14px; 
+            letter-spacing: 0.02em;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+        }
+       .info-player{
+           display: inline-block;
+           vertical-align: top;
+           width: 240px;
+           height: auto;
+           padding: 0.5em;
+           background-color: #fff;
+           margin-bottom: 1em;
+           margin-left: 8px;
+       }
+       .info-player__img img{
+           width: 100%;
+           height: 130px;
+           object-fit: cover;
+           object-position: top;
+       }
+    </style>
+</head>
+<body>
+    
+
+    <script>
+        class Persona{
+            constructor(name,career,country,year,height,poster){
+                this.name    = name
+                this.career  = career
+                this.country = country
+                this.year    = year
+                this.height  = height
+                this.poster  = poster
+                
+            }
+            getInfo(){
+                return '<section class="info-player">'+ 
+                            '<p>Name: '+this.name+'</p>'+
+                            '<p class="info-player__img"><img src="'+this.poster+'"> </p>'+ 
+                            '<p>Career: '+this.career+'</p>'+
+                            '<p>Year: '+this.country+'</p>'+
+                            '<p>Selection: '+this.year+'</p>'+
+                            '<p>Height: '+this.height+' m </p>'+ 
+                       '</section>'
+            }
+            static definicion(){
+                console.log('Una persona es un ser humano')
+            }
+        }
+        class Developer extends Persona{
+            constructor(name,career,country,year,height,poster,specialty){
+                super(name,career,country,year,height,poster)
+                this.specialty = specialty
+            }
+            greetingsFromTheDeveloper(){
+                 return '<section class="info-player">'+ 
+                     '<p class="info-player__img"><img src="'+this.poster+'"> </p>'+ 
+                        '<p>Name: '+this.name+'</p>'+
+                        '<p>Career: '+this.career+'</p>'+
+                        '<p>Year: '+this.country+'</p>'+
+                        '<p>Selection: '+this.year+'</p>'+
+                        '<p>Height: '+this.height+' m </p>'+ 
+                        '<p>Especialidad: '+this.specialty+' </p>'+ 
+                   '</section>'
+            }
+
+        }
+         
+        class Singer extends Developer {
+            constructor(name,career,country,year,height,poster,specialty,generoMusica){
+                super(name,career,country,year,height,poster,specialty) 
+                this.generoMusica = generoMusica
+            }
+            greetingsFromTheSinger1(){
+                 return '<section class="info-player">'+ 
+                     '<p class="info-player__img"><img src="'+this.poster+'"> </p>'+ 
+                        '<p>Name: '+this.name+'</p>'+
+                        '<p>Career: '+this.career+'</p>'+
+                        '<p>Year: '+this.country+'</p>'+
+                        '<p>Selection: '+this.year+'</p>'+
+                        '<p>Height: '+this.height+' m </p>'+ 
+                        '<p>Especialidad: '+this.specialty+' </p>'+  
+                   '</section>'
+            }
+            greetingsFromTheSinger2(){
+                return '<section class="info-player">'+ 
+                    '<p class="info-player__img"><img src="'+this.poster+'"> </p>'+ 
+                       '<p>Name: '+this.name+'</p>'+
+                       '<p>Career: '+this.career+'</p>'+
+                       '<p>Year: '+this.country+'</p>'+
+                       '<p>Selection: '+this.year+'</p>'+
+                       '<p>Height: '+this.height+' m </p>'+ 
+                       '<p>Especialidad: '+this.specialty+' </p>'+ 
+                       '<p>Genero Musical: '+this.generoMusica+' </p>'+ 
+                  '</section>'
+           }
+
+        }
+        let developer = new Developer('Mark Zuckerberg','SEO of Facebook','United States',34,1.80,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoAPTfvcT5kjZL-4cS3W8Jo0bddlXO1OjffZupngAuw5pSSeUOZg')
+        let developer1 = new Developer('Enrique Perez','SEO of Peru News','Colombia',25,1.70,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoAPTfvcT5kjZL-4cS3W8Jo0bddlXO1OjffZupngAuw5pSSeUOZg','Backend')
+        let developer2 = new Developer('Wilber Pariona','Systems Engineer','Perú',22,1.70,'data:image/jpeg;base64,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','Frontend')
+        let singer1 = new Singer('Justin Bieber','Singer and Model','Canada',25,1.74,'https://i.pinimg.com/originals/d0/d8/30/d0d830d3739c50a1d366c7f438444096.jpg','Singer')
+        let singer2 = new Singer('Selena Gomez',' Singer, Model and Actriz',' Uneted States',25,1.64,'http://www.laprensa.hn/csp/mediapool/sites/dt.common.streams.StreamServer.cls?STREAMOID=aldPsv$wPayOUvV$gkGf9s$daE2N3K4ZzOUsqbU5sYuUkT6i7tQfS4WuVn_$2KYc6FB40xiOfUoExWL3M40tfzssyZqpeG_J0TFo7ZhRaDiHC9oxmioMlYVJD0A$3RbIiibgT65kY_CSDiCiUzvHvODrHApbd6ry6YGl5GGOZrs-&CONTENTTYPE=image/jpeg','Singer','Pop Rock, Dance Pop ')
+        
+        document.write(developer1.greetingsFromTheDeveloper())  
+        document.write(developer2.greetingsFromTheDeveloper())  
+        document.write(singer1.greetingsFromTheSinger1())  
+        document.write(singer2.greetingsFromTheSinger2())   
+        document.write(developer2.greetingsFromTheDeveloper())  
+        document.write(developer2.greetingsFromTheDeveloper())  
+   
+        
+     </script>
+</body>
+</html>

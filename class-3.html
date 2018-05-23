@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //Spreat Operator
+       /* let nombre = 'wilber'
+           edad = 22
+        function getContextLiterals(string,...values){
+            console.log(string)
+            console.log(values)
+        }
+        getContextLiterals`hola mi nombre es ${nombre} y tengo ${edad} año`;*/
+
+        //La magia de Desctructuring
+      /*  let telefono = {
+            marca:'Huawai',
+            color:'Negro',
+            pantalla:15.6
+        }
+        let {marca,color,pantalla} = telefono
+
+      array= [a,b] = [1,2]
+
+        console.log(marca,color,pantalla)
+        console.log(array)
+        /////
+        let telefono = {
+            // marca:'Huawai',
+             //color:'Negro',
+            // pantalla:15.8
+        }
+
+        function checkPhone({marca='Samsung',color='Amarrillo',pantalla=17.5}){
+            console.log(marca)
+            console.log(color)
+            console.log(pantalla)
+
+        }
+
+        checkPhone(telefono)*/
+
+        //Parametro por defecto
+
+        /* function mostrarInfo(nombre='usuario',edad=18){
+              nombre = nombre 
+              edad = edad 
+              console.log(nombre,edad)
+         }
+          mostrarInfo('jhon',25) */
+
+          class Persona{
+              constructor(nombre,edad){
+                this.nombre = nombre
+                this.edad = edad
+              }
+              saludar(){
+                  console.log(`Hola mi nombre es ${this.nombre} y tengo ${this.edad}`)
+              }
+              static  definicion(){
+                  console.log('una persona es un ser humano')
+              }
+          }
+
+          let persona = new Persona('wilber',22)
+ 
+
+       class Desarrollador extends Persona{
+            constructor(nombre,edad,tipo){
+                super(nombre,edad)
+                this.tipo = tipo
+            }
+            saludoDesarrollador(){
+                super.saludar()
+                console.log(`Son un ${this.tipo} developer`)
+            }
+           /* saludar(){
+                console.log('Hola desde la subclase')
+            }*/
+       } 
+       let desarrollador = new Desarrollador('wilber',22,'Frontend')
+       desarrollador.saludoDesarrollador()
+       desarrollador.saludar()
+    
+      // console.log(typeof Persona)
+       Desarrollador.prototype.saludar.bind({
+           nombre:'Pedro',
+           edad:22
+       })()
+
+
+
+
+    </script>
+    <script>
+
+    </script>
+</body>
+</html>

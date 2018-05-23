@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      
+    </style>
+</head>
+<body>
+        <h1>Ejemplo de sessionStorage</h1> 
+        <form id="login" action="protegido.html" method="POST">
+            <input id="username" type="text" placeholder="ingres su usuario" required>
+            <input id="password" type="password" placeholder="ingres su password" required>
+            <input id="enviar" type="submit" value="Guardar">
+        </form>
+ 
+    <script>  
+         
+        let d = document
+        function crearSession(event){
+            event.preventDefault()
+            let user = d.querySelector('#username').value,
+                pass = d.querySelector('#password').value
+            if(user == 'wilber' && pass == '123'){
+                sessionStorage.setItem('nombre',user)
+                window.location.href = 'protegido.html'
+            }else{
+                alert('Datos incorrectos')
+                event.target.reset
+            }
+        }
+        function iniciarSesion(){
+            let login = d.querySelector('#login')
+            login.onsubmit = crearSession
+           
+        } 
+        window.onload = iniciarSesion
+      
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

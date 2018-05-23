@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style></style>
+</head>
+<body>
+    <form action="">
+        <label>Nombre:<input type="text" name="nombre" ></label>
+        <label>Apellidos:<input type="text" name="Apellidos" ></label>
+        <label>Correo:<input type="text" name="Correo" ></label>
+        <label>Docimicio:<input type="text" name="Docimicio" ></label>
+        <label>País:<input type="text" name="País"></label> 
+        <label>País:<input type="text" name="País"></label> 
+        <label>País:<input type="text" name="País"></label> 
+        <label>País:<input type="text" name="País"></label> 
+        <label>País:<input type="text" name="País"></label> 
+        <label>País:<input type="text" name="País"></label> 
+        <label>País:<input type="text" name="País"></label> 
+        <label>País:<input type="text" name="País"></label> 
+        <label>País:<input type="text" name="País"></label> 
+        <label>País:<input type="text" name="País"></label> 
+        <label>País:<input type="text" name="País"></label> 
+        <label>País:<input type="text" name="País"></label> 
+        <label>País:<input type="text" name="País"></label> 
+        <label>País:<input type="text" name="País"></label> 
+        <label>País:<input type="text" name="País"></label> 
+        
+    </form>
+
+
+    <script>
+
+        let nodos = document.querySelectorAll('input[type="text"]')
+        for(let i =0 ; i< nodos.length;i++){
+            nodos[i].addEventListener('click',function(event){ 
+             if(i == 1 || i  == 4 || i == 7 || i == 10){  
+                this.style.background = 'yellow';
+             }
+             if(i ==0||i == 2 || i  == 5 || i == 8 || i == 11){  
+                this.style.background = 'blue';
+             }
+             if(i == 3 || i  == 6 || i == 9 || i == 12||i== 15){  
+                this.style.background = 'green';
+             }
+        } )
+    }
+    
+        
+    </script>
+    
+</body>
+</html>

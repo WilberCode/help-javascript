@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style> 
+        body{
+            background-color: rgb(243, 242, 242);
+            font-family: sans-serif;
+            font-size: 14px; 
+            letter-spacing: 0.02em;
+        }
+       .info-player{
+           display: inline-block;
+           width: 240px;
+           height: auto;
+           padding: 0.5em;
+           background-color: #fff;
+           margin-bottom: 1em;
+           margin-left: 8px;
+       }
+       .info-player__img img{
+           width: 100%;
+           height: 130px;
+           object-fit: cover;
+           object-position: top;
+       }
+    </style>  
+    </head>
+    <body> 
+    
+
+        <script> 
+        
+            class Player{
+                constructor(name,year,selection,height,salary,poster){
+                    this.name = name
+                    this.year = year
+                    this.selection = selection
+                    this.height = height
+                    this.salary = salary
+                    this.poster = poster
+
+                }
+                getInfo(){
+                    return '<section class="info-player">'+ 
+                            '<p>Player name: '+this.name+'</p>'+
+                            '<p class="info-player__img"><img src="'+this.poster+'"> </p>'+ 
+                            '<p>Year: '+this.year+'</p>'+
+                            '<p>Selection: '+this.selection+'</p>'+
+                            '<p>Height: '+this.height+'</p>'+
+                            '<p>Salary: '+this.salary+'</p>'+
+                  '</section>'
+                }
+            }
+
+            let player1 = new  Player('Paolo Guerrero',34,'Flamengo',1.85,600000,'https://prod.media.larepublica.pe/720x405/larepublica/imagen/2018/05/11/noticia-noticia-paolo-guerrero-tas.png')
+            let player2 = new  Player('Cristiano Ronaldo',33,'Real Madrid',1.87,800000,'https://www.ecured.cu/images/thumb/3/3e/Get.JPG/260px-Get.JPG')
+            let player3 = new  Player('Lionel Messi',30,'Barcelona',1.70,900000,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQQGRxvk7IFtcEp4ReE50a06_VqyU29yvjsY5GTHZToixIj5Ke')
+            let player4 = new  Player('Neymar da Silva',26,'PSG',1.76,1200000,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7yaFz3Fa-vKhrz4B4TozZPgJeBPgfmMQ9NLTL3g4u2sM6t8UN')
+            let player5 = new  Player('Jamez Rodrigues',26,'Mayern de Munich',1.80,600000,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc_GFMTYGvgLolHufT7HtBOzBaSydJ78A6AGxZ_MRTKE1kFN6big')
+            document.write(player1.getInfo(),player2.getInfo(),player3.getInfo(),player4.getInfo(),player5.getInfo())
+                console.log(player1)
+        </script>
+    </body> 
+   
+</html>

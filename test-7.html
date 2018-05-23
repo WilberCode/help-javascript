@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<script>
+        window.onload = function () {
+              var ejemplo = document.getElementById('ejemplo');
+              ejemplo.addEventListener("click", ejecutarEjemplo);  
+        } 
+        function ejecutarEjemplo () { 
+             var formulario1 = document.formularioContacto; 
+             dimeDatos(formulario1);
+             var formulario2 = document.formularioReclamacion;
+             dimeDatos(formulario2);
+        } function dimeDatos(formulario){ 
+                var msg = ''; 
+                msg = msg + '\n\nElemento input del formulario '+formulario.name+ ' tiene id: '+ formulario.nombre.id; 
+                msg = msg + '\n\nOtro elemento input del formulario '+formulario.name+ ' tiene id: '+ formulario.apellidos.id+' y clase '+formulario.apellidos.className; 
+                alert (msg+'\n\n');
+        } 
+</script>
+         
+        <body>
+            <div id="cabecera">
+                <h2>Cursos aprenderaprogramar.com</h2>
+                <h3>Ejemplos JavaScript</h3>
+            </div> 
+            <div id="ejemplo" style="color:blue; margin:20px;">Pulsa aquí</div>
+             <form name="formularioContacto" method="get" action="accion1.html" id="formularioContacto"> 
+                <h2>Formulario de contacto</h2> 
+                <label>Nombre:<input id="nombreFormContacto" name="nombre" type="text"></label>
+                <label>Apellidos:<input id="apellidosFormContacto" name="apellidos" type="text"></label>
+                <label><input id="botonEnvio1" type="submit" value="Enviar"></label> 
+            </form> 
+            <form name="formularioReclamacion" method="get" action="accion2.html"> 
+                <h2>Formulario de reclamación</h2>
+                <label>Nombre:<input id="nombreFormReclamacion" name="nombre" type="text"></label>
+                <label>Apellidos:<input class="apellido-class" id="apellidosFormReclamacion" name="apellidos" type="text"></label> 
+                <label><input id="botonEnvio2" type="submit" value="Enviar"></label> 
+            </form> 
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>English</title>
+</head>
+<body>
+    <h1>Hi! Welcome to the  Site</h1>
+    <a id="forgot-language" href="#">Forgot Language</a>
+
+    <script>
+        function forgotLanguage(event){
+            event.preventDefault()
+            localStorage.removeItem('idioma')
+            window.location.href = 'localStorage.html'
+        }
+        document.querySelector('#forgot-language').onclick = forgotLanguage
+    </script>
+</body>
+</html>

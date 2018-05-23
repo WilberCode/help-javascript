@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+                var ejemplo = document.getElementById('ejemplo');
+                ejemplo.addEventListener("click", ejecutarEjemplo);
+        }
+        function ejecutarEjemplo () {
+        var nuevaVentana = window.open ('http://wilbercode.github.io/myprofile/', 'miNombre', 'width=300, height=300,resizable=true, menubar=yes');
+        nuevaVentana.focus();
+        let template = `Si esta cerreda o no: ${nuevaVentana.closed} <br>
+        Viewport Horizontal: ${nuevaVentana.window.innerWidth}, Viewport Vertical: ${nuevaVentana.innerHeight} <br>
+        Número de frames en la pantalla: ${nuevaVentana.frames.length} <br>
+        Url a la que apunta: ${nuevaVentana.location.href} <br>
+        Url a la que apunta: ${nuevaVentana.name} <br>
+        Dimensiones de la ´pantalla: Horizontal --> ${nuevaVentana.screenX} Vertical --> ${nuevaVentana.screenY} <br>
+        `
+
+         document.write(template)
+        }
+       
+  </script>
+</head>
+<body> 
+        <div id="cabecera">
+            <h2>Cursos aprenderaprogramar.com</h2>
+            <h3>Ejemplos JavaScript</h3></div>
+        <div style="color:blue; margin:20px;" id ="ejemplo">Pulsa aquí</div>
+</body>
+</html>

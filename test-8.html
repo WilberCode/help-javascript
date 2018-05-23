@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<form action="server.html" method="GET" name="formService" >
+  <label> Name:     <input class="name-class" type="text" id="nameId" name="nameName"> </label>  
+  <label> Email:    <input class="email-class" type="text" id="nameEmail" name="emailName"> </label>  
+  <label> password: <input class="password-class" type="passoword" id="passwordId" name="passwordName"></label>  
+  <label><input class="send-class" type="submit" id="send" value="Send Info"></label> 
+</form>
+
+
+
+<script>
+    function Sendform(){
+        let formsJs =  document.forms
+        for(let i = 0 ; i < formsJs.length; i++){
+            for(let j = 0; j < formsJs[i].elements.length;j++){ 
+                let msg =''
+                msg += `<h1>Name Attribute</h1>
+                        <p> Los atributos deel formulario ${i+1} son: </p>
+                        <p> Name: ${formsJs[i].elements[j].name} </p>
+                        <p> Id: ${formsJs[i].elements[j].id} </p>
+                        <p> Class: ${formsJs[i].elements[j].className} </p>
+                        <p> Type: ${formsJs[i].elements[j].type} </p> 
+                     
+                `
+                document.write(msg)
+            }
+        } 
+    } 
+    Sendform()
+</script>
+</body>
+</html>

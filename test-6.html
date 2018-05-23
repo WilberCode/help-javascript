@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        a{
+            display: block;
+            margin-bottom: 0.3em;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#" id="btn1">Open the Window</a>
+    <a href="#" id="btn2">Close the Window</a>
+    <a href="#" id="btn3">Move the Window</a>
+    <a href="#" id="btn4">Move the Window to </a>
+    <a href="#" id="btn5">Open the window Print</a>
+    <a href="#" id="btn6">Open Prompt</a>
+    <a href="#" id="btn7">Move the window with resizeBy</a>
+    <a href="#" id="btn8">Modify the window with resizeTo</a>
+    <a href="#" id="btn9">Move the window with scrollBy</a>
+    <a href="#" id="btn10">Move the window with scroll from origin with scrollTo</a>
+    <a href="#" id="btn11">Scroll depending of lines with scrollByLines</a>
+    <a href="#" id="btn12">Stop the Window Load</a>
+    <script> 
+        window.onload = function(){
+            let myPage
+            function openWindow(){
+                myPage = window.open('http://wilbercode.github.io/myprofile/','Sitio Web', width="400",height="500",resizable="true",menubar="yes")
+              
+                myPage.focus() 
+            }
+            function closeWindow(){
+                myPage.close()
+            }
+            function moveWindow(){
+                myPage.moveBy(500,300)
+                myPage.focus()
+            }
+            function moveWindowTo(){
+                myPage.moveTo(200,200)
+                myPage.focus()
+            }
+            function openWindowPrint(){
+                let openPrint = window.print()
+            } 
+            function openPrompt(){
+                let persona = prompt('¿Cual es su nombre?')
+                if(persona !== null){
+                    alert(`Buenos dias ${persona}, gracias por asistir al evento`)
+                }else{
+                    alert(`Buenos dias, gracias por asistir al evento`)
+                }
+            }
+            function moveWindowWithRezise(){
+                myPage.reziseBy(250,250)
+                myPage.focus()
+            }
+            function modifyWindow(){
+                myPage.reziseTo(100,100)
+                myPage.focus()
+            }
+            function moveWindowScroll(){
+                myPage.scrollBy(0,300)
+
+            }
+            function moveWindowFromOrigin(){
+                myPage.scrollTo(0,600)
+            }
+            function scrollDependingOfLines(){
+                myPage.scrollByLines(12)
+            }
+            function stopLoadWindow(){
+                window.stop()
+            }
+
+            btn1.addEventListener('click',openWindow)
+            btn2.addEventListener('click',closeWindow)
+            btn3.addEventListener('click',moveWindow)
+            btn5.addEventListener('click',openWindowPrint)
+            btn6.addEventListener('click',openPrompt)
+            btn7.addEventListener('click',moveWindowWithRezise)
+            btn8.addEventListener('click',modifyWindow)
+            btn9.addEventListener('click',moveWindowScroll)
+            btn10.addEventListener('click',moveWindowFromOrigin)
+            btn11.addEventListener('click',scrollDependingOfLines)
+            btn12.addEventListener('click',stopLoadWindow)
+        }
+    </script>
+</body>
+</html>

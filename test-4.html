@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  <style>
+      *{
+          box-sizing: border-box;
+          padding: 0;
+          margin: 0;
+      }
+      section{
+        position: absolute;
+        left: 0;
+        width: 500px;
+        height: 100vh;
+        margin: auto;
+        background-color: #518811;   
+        transition: transform .3s linear;
+        transform: translateX(-400px);
+      }
+  </style>
+</head>
+<body>
+
+
+    <section id="section">
+
+    </section>
+
+    <script>
+      function wiewPort(){
+            setInterval(()=>{
+                let widthViewport = window.innerWidth
+               let withS = document.getElementById('section') 
+                if(widthViewport <= 600){
+                    withS.style.transform ='translateX(-300px)'
+                } 
+                else{
+                    withS.style.transform ='translateX(0)' 
+                }
+            },50)
+        }
+        wiewPort()
+       /* function viewPort(){
+            setInterval(()=>{
+                let widthViewport = window.innerHeight
+               let withS = document.querySelector('.profile') 
+                if(widthViewport <= 555){
+                    withS.style.top ='10%'
+                } 
+                else{
+                    withS.style.top ='30%' 
+                }
+            },50)
+        } 
+        viewPort()*/
+    </script>
+</body>
+</html>

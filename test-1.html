@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .link{
+            display: inline-block;
+            position: relative;
+            background-color: #Af0000;
+            padding: 0.2em 2em;
+            border-radius: 4px 5px 5px 4px;
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 1em;
+            box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);        }
+        .link::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -22px;
+            transform: rotate(180deg);
+            border-color: transparent #Af0000 transparent  transparent;
+            border-width: 12px;
+            border-style: solid;  
+        }
+        .link::after{
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px; 
+            transform: rotate(-45deg); 
+            border-color: #ffffff;
+            border-width: 4px;
+            border-style: solid; 
+            border-radius: 50%;
+
+
+        }
+    </style>
+    <script>  
+          window.onload = function(){
+            window.document.images[0].style.border = 'solid blue 10px';
+            document.images[1].style.border = 'solid red 10px';
+            var rut = 'http://aprenderaprogramar.com/images/stories/Libros/portada_libro_aprender_programar_java_lowres.jpg';
+            document.images[1].src = rut;  
+            for(let i =0; i < 12; i++){
+                document.links[i].classList.toggle('link')
+            } 
+
+          }
+               
+    </script>
+</head>
+<body>
+    <div id="cabecera">
+        <h2>Cursos aprenderaprogramar.com</h2>
+        <h3>Ejemplos JavaScript</h3>
+    </div>
+                <div style="color:blue; margin:20px;" id ="pulsador" onclick="ejemplo()">
+                    <a href="#"> Probar</a> 
+                </div>
+                <img src="http://i.imgur.com/afC0L.jpg" alt="Notepad++" title="Notepad++, un útil editor de texto" />
+                <img src="http://www.crimsoneditor.com/images/logo.jpg" alt="Crimson" title="Crimson, un editor de texto alternativo"/>  
+                <a href="#">firts</a>
+                <a href="#">second</a> 
+                <a href="#">third</a> 
+                <a href="#">fourth</a>
+                <a href="#">fifth</a>
+                <a href="#">sixth</a>
+
+
+     </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
